@@ -1,21 +1,26 @@
 #ifndef HBLK_CRYPTO_H
 #define HBLK_CRYPTO_H
 
-# include <openssl/ec.h>
-# include <openssl/obj_mac.h>
-# include <openssl/sha.h>
+#include <openssl/ec.h>
+#include <openssl/obj_mac.h>
+#include <openssl/sha.h>
 #include <openssl/bn.h>
-# include <stdint.h>
+#include <openssl/pem.h>
 
-# define EC_CURVE   NID_secp256k1
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <stdint.h>
+#include <fcntl.h>
+
+#define EC_CURVE   NID_secp256k1
 
 /* EC_KEY public key octet string length (using 256-bit curve) */
-# define EC_PUB_LEN 65
+#define EC_PUB_LEN 65
 /* Maximum signature octet string length (using 256-bit curve) */
-# define SIG_MAX_LEN    72
+#define SIG_MAX_LEN    72
 
-# define PRI_FILENAME   "key.pem"
-# define PUB_FILENAME   "key_pub.pem"
+#define PRIV_KEY   "key.pem"
+#define PUB_KEY   "key_pub.pem"
 
 /**
  * struct sig_s - EC Signature structure
