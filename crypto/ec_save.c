@@ -19,7 +19,7 @@ int ec_save(EC_KEY *key, char const *folder)
 	/*Create a folder if not exist*/
 	mkdir(folder, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	/*Create the complete path to store the private key*/
-	sprintf(path, "%s/" PRIV_KEY, folder);
+	sprintf(path, "%s/" PRI_FILENAME, folder);
 	/*Open a file descriptor to store the private key*/
 	fp = fopen(path, "w");
 	if (!fp)
@@ -29,7 +29,7 @@ int ec_save(EC_KEY *key, char const *folder)
 		goto out;
 	fclose(fp);
 	/*Create the complete path to store the public key*/
-	sprintf(path, "%s/" PUB_KEY, folder);
+	sprintf(path, "%s/" PUB_FILENAME, folder);
 	/*Open a file descriptor to store the public key*/
 	fp = fopen(path, "w");
 	if (!fp)

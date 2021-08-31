@@ -20,8 +20,8 @@
 /* Maximum signature octet string length (using 256-bit curve) */
 #define SIG_MAX_LEN    72
 
-#define PRIV_KEY   "key.pem"
-#define PUB_KEY   "key_pub.pem"
+#define PRI_FILENAME   "key.pem"
+#define PUB_FILENAME   "key_pub.pem"
 
 /**
  * struct sig_s - EC Signature structure
