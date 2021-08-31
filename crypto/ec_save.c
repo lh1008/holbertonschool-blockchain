@@ -26,10 +26,7 @@ int ec_save(EC_KEY *key, char const *folder)
 		return (0);
 	/*write the private key in the given file*/
 	if (!PEM_write_ECPrivateKey(fp, key, NULL, NULL, 0, NULL, NULL))
-	{
-		fclose(fp);
-		return (0);
-	}
+		goto out;
 	fclose(fp);
 	/*Create the complete path to store the public key*/
 	sprintf(path, "%s/" PUB_KEY, folder);
@@ -39,11 +36,11 @@ int ec_save(EC_KEY *key, char const *folder)
 		return (0);
 	/*write the public key in the given file*/
 	if (!PEM_write_EC_PUBKEY(fp, key))
-	{
-		fclose(fp);
-		return (0);
-	}
+		goto out;
 	fclose(fp);
-
 	return (1);
+
+out:
+	fclose(fp);
+	return (0);
 }
