@@ -1,14 +1,14 @@
-#ifndef BLOCK_CHAIN_H
-#define BLOCK_CHAIN_H
+#ifndef BLOCKCHAIN_H
+#define BLOCKCHAIN_H
 
-# include "../../crypto/hblk_crypto.h"
-# include <llist.h>
-# include <stdint.h>
-# include <openssl/sha.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <time.h>
+#include "../../crypto/hblk_crypto.h"
+#include <llist.h>
+#include <stdint.h>
+#include <openssl/sha.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
 
 /**
  * struct block_info_s - Block info structure
@@ -104,4 +104,5 @@ uint8_t *block_hash(block_t const *block,
 int blockchain_serialize(blockchain_t const *blockchain, char const *path);
 blockchain_t *blockchain_deserialize(char const *path);
 int block_is_valid(block_t const *block, block_t const *prev_block);
-#endif
+
+#endif /* BLOCKCHAIN_H */
