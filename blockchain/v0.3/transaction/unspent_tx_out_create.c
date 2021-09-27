@@ -21,9 +21,7 @@ unspent_tx_out_t *unspent_tx_out_create(
 
 	new_UTXO_output = calloc(1, sizeof(unspent_tx_out_t));
 	if (new_UTXO_output == NULL)
-	{
 		return (NULL);
-	}
 
 	memcpy(new_UTXO_output->block_hash, block_hash,
 			sizeof(new_UTXO_output->block_hash));
