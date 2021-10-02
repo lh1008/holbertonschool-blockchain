@@ -2,11 +2,11 @@
 
 /**
  * tx_out_create - entry to function
- * Desc: tx_out_create function that allocates and initializes
- * a transaction output structure
- * @amount: the amount of the transaction
- * @pub: public key of the receiver
- * Return: pointer to the created transaction output or NULL
+ * Desc: tx_out_create function that creates a new transaction
+ * output structure
+ * @amount: the transaction amount
+ * @pub: public key of receiver
+ * Return: pointer to new structure or NULL
  */
 tx_out_t *tx_out_create(uint32_t amount, uint8_t const pub[EC_PUB_LEN])
 {
@@ -15,8 +15,9 @@ tx_out_t *tx_out_create(uint32_t amount, uint8_t const pub[EC_PUB_LEN])
 	new_tx_output = calloc(1, sizeof(tx_out_t));
 
 	if (new_tx_output == NULL)
+	{
 		return (NULL);
-
+	}
 	new_tx_output->amount = amount;
 	memcpy(new_tx_output->pub, pub, sizeof(new_tx_output->pub));
 	if (!sha256((int8_t const *)new_tx_output,

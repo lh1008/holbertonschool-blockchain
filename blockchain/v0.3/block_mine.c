@@ -9,15 +9,11 @@
 */
 void block_mine(block_t *block)
 {
-	block->info.nonce = 0;
+	uint64_t nonce = 0;
+
 	do {
-		/*Create a hash for the block*/
+		block->info.nonce = nonce;
 		block_hash(block, block->hash);
-		/*Check if the created hash fulfill the difficulty*/
-		if (hash_matches_difficulty(block->hash, block->info.difficulty))
-		{
-			break;
-		}
-		block->info.nonce++;
-	} while (block->info.nonce != 0);
+		nonce++;
+	} while (!hash_matches_difficulty(block->hash, block->info.difficulty));
 }
