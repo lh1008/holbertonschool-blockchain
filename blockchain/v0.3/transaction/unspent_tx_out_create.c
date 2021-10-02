@@ -2,8 +2,8 @@
 
 /**
  * unspent_tx_out_create - entry to function
- * Desc: unspent_tx_out_create function that allocates and initializes
- * an unspent transaction output structure
+ * Desc: unspent_tx_out_create function that allocates and
+ * initializes an unspent transaction output structure
  * @block_hash: contains the hash of the Block where
  * the referenced transaction output is located
  * @tx_id: contains the hash of a transaction in the Block block_hash,
@@ -21,7 +21,9 @@ unspent_tx_out_t *unspent_tx_out_create(
 
 	new_UTXO_output = calloc(1, sizeof(unspent_tx_out_t));
 	if (new_UTXO_output == NULL)
+	{
 		return (NULL);
+	}
 
 	memcpy(new_UTXO_output->block_hash, block_hash,
 			sizeof(new_UTXO_output->block_hash));
