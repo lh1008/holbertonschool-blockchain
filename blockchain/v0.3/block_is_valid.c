@@ -32,6 +32,7 @@ int validate_tx(llist_node_t node, unsigned int idx, void *arg)
  * Desc: block_is_valid function that verifies that a Block is valid
  * @block: points to the Block to check
  * @prev_block: points to the previous Block in the Blockchain
+ * @all_unspent: pointer to llist_t type
  * Return: 0 on sucess, 1 otherwise
  */
 int block_is_valid(block_t const *block, block_t const *prev_block,
